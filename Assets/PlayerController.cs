@@ -66,6 +66,11 @@ public class PlayerController : PlayerStateMachine
         SetState(new DrivingState(this,ship, i_pos));
     }
 
+    public Vector3 GetPlanetDiff()
+    {
+        return transform.position - Planet.position;
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.GetComponent<IF_InteractiveObj>() != null && !interactiveObjs.ContainsKey(col.gameObject))
@@ -73,6 +78,16 @@ public class PlayerController : PlayerStateMachine
             Debug.Log(this.name + " in " + col.name);
             interactiveObjs.Add(col.gameObject, col.GetComponent<IF_InteractiveObj>());
         }
+        if (col.tag.Equals("PlanetGravity"))
+        {
+            Debug.Log("In Planet");
+            this.Planet = col.transform.parent;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+       
     }
 
     private void OnTriggerExit2D(Collider2D col)
@@ -81,6 +96,11 @@ public class PlayerController : PlayerStateMachine
         {
             Debug.Log(this.name + " out " + col.name);
             interactiveObjs.Remove(col.gameObject);
+        }
+        if (col.tag.Equals("PlanetGravity") && col.transform.parent== this.Planet)
+        {
+            Debug.Log("out Planet");
+            this.Planet = null;
         }
     }
 }
