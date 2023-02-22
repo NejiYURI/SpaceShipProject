@@ -9,8 +9,8 @@ public class CameraControl : CameraStateMachine
     /// camera on this gameobject
     /// </summary>
     private Camera m_Camera;
-
-    public Transform VCamera;
+    public CinemachineVirtualCamera NormalCamera;
+    public CinemachineVirtualCamera PlanetCamera;
     public CinemachineTargetGroup targetGroup;
 
     /// <summary>

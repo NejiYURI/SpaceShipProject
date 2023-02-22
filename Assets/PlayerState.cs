@@ -38,4 +38,9 @@ public abstract class PlayerState
     {
 
     }
+
+    public virtual void InteractiveCancel()
+    {
+
+    }
 }

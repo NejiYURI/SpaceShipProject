@@ -5,7 +5,6 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Camera_Planet : CameraState
 {
-    private Transform Planet_Tmp;
     public Camera_Planet(CameraControl camctr) : base(camctr)
     {
 
@@ -13,15 +12,17 @@ public class Camera_Planet : CameraState
 
     public override void StateStart()
     {
+        if(camctr.Planet!=null && camctr.targetGroup.FindMember(camctr.Planet)>0) camctr.targetGroup.RemoveMember(camctr.Planet);
         camctr.targetGroup.AddMember(camctr.Target.Planet,3f,0f);
-        Planet_Tmp = camctr.Target.Planet;
+        camctr.Planet = camctr.Target.Planet;
+        camctr.NormalCamera.Priority = 0;
+        camctr.PlanetCamera.Priority = 1;
     }
 
     public override void UpdateFunc()
     {
         if (camctr.Target.Planet == null)
         {
-            camctr.targetGroup.RemoveMember(Planet_Tmp);
             camctr.SetState(new Camera_Normal(camctr));
         } 
     }

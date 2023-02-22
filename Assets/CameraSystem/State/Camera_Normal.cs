@@ -9,7 +9,12 @@ public class Camera_Normal : CameraState
     {
 
     }
-
+    public override void StateStart()
+    {
+        camctr.NormalCamera.transform.rotation = camctr.PlanetCamera.transform.rotation;
+        camctr.NormalCamera.Priority = 1;
+        camctr.PlanetCamera.Priority = 0;
+    }
     public override void UpdateFunc()
     {
         if (camctr.Target.Planet != null) camctr.SetState(new Camera_Planet(camctr));
@@ -24,8 +29,6 @@ public class Camera_Normal : CameraState
 
     public override void RotateCamera()
     {
-        if (camctr.Target == null) return;
-        //camctr.transform.rotation = camctr.Target.transform.rotation;
-        camctr.VCamera.rotation = camctr.Target.transform.rotation;
+
     }
 }

@@ -37,7 +37,10 @@ public class PlayerController : PlayerStateMachine
 
     public void OnInteractionInput(InputAction.CallbackContext context)
     {
-        state.Interactive();
+        if (context.performed)
+            state.Interactive();
+        else
+            state.InteractiveCancel();
     }
 
 
@@ -61,9 +64,14 @@ public class PlayerController : PlayerStateMachine
         return rslt;
     }
 
-    public void SetDriving(ShipContoller ship,Vector2 i_pos)
+    public void SetDriving(ShipContoller ship, Vector2 i_pos)
     {
-        SetState(new DrivingState(this,ship, i_pos));
+        SetState(new DrivingState(this, ship, i_pos));
+    }
+
+    public void SetGunner(ShipContoller ship, Vector2 i_pos)
+    {
+        SetState(new GunnerState(this, ship, i_pos));
     }
 
     public Vector3 GetPlanetDiff()
@@ -87,7 +95,7 @@ public class PlayerController : PlayerStateMachine
 
     private void OnTriggerStay2D(Collider2D col)
     {
-       
+
     }
 
     private void OnTriggerExit2D(Collider2D col)
@@ -97,7 +105,7 @@ public class PlayerController : PlayerStateMachine
             Debug.Log(this.name + " out " + col.name);
             interactiveObjs.Remove(col.gameObject);
         }
-        if (col.tag.Equals("PlanetGravity") && col.transform.parent== this.Planet)
+        if (col.tag.Equals("PlanetGravity") && col.transform.parent == this.Planet)
         {
             Debug.Log("out Planet");
             this.Planet = null;
