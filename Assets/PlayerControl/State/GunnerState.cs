@@ -9,11 +9,15 @@ public class GunnerState : PlayerState
     {
         ship = i_ship;
         p_con.rg.velocity = Vector2.zero;
+        p_con.rg.simulated = false;
         p_con.transform.position = pos;
         p_con.Movement = Vector2.zero;
+        p_con.transform.SetParent(i_ship.transform, false);
+        ship.GunnerSitIn(p_con);
     }
     public override void StateStart()
     {
+        p_con.IsInShip = true;
         if (ship != null && p_con.fixedJoint != null)
         {
             p_con.fixedJoint.connectedBody = ship.rg;
@@ -23,12 +27,10 @@ public class GunnerState : PlayerState
     }
     public override void Interactive()
     {
-        Debug.Log("EEE");
         ship.FireWeapon(true);
     }
     public override void InteractiveCancel()
     {
-        Debug.Log("CancelFire");
         ship.FireWeapon(false);
     }
 

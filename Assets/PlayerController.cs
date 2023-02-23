@@ -3,9 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : PlayerStateMachine
+public class PlayerController : PlayerStateMachine, IF_CharacterObj
 {
     public Transform Planet;
+    Transform IF_CharacterObj.Planet
+    {
+        get
+        {
+            return Planet;
+        }
+
+    }
+    public bool IsInShip;
+    bool IF_CharacterObj.IsInShip
+    {
+        get
+        {
+            return IsInShip;
+        }
+    }
 
     public Vector2 Movement;
     [HideInInspector]
@@ -78,12 +94,16 @@ public class PlayerController : PlayerStateMachine
     {
         return transform.position - Planet.position;
     }
+    public Vector2 ObjPosition()
+    {
+        return this.transform.position;
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.GetComponent<IF_InteractiveObj>() != null && !interactiveObjs.ContainsKey(col.gameObject))
         {
-            Debug.Log(this.name + " in " + col.name);
+            //Debug.Log(this.name + " in " + col.name);
             interactiveObjs.Add(col.gameObject, col.GetComponent<IF_InteractiveObj>());
         }
         if (col.tag.Equals("PlanetGravity"))

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7659502403061804638}
   - component: {fileID: 7659502403061804632}
   - component: {fileID: 7659502403061804633}
-  - component: {fileID: 7659502403061804634}
+  - component: {fileID: 3114457782449228337}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -197,6 +197,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 744c5e3f-e374-4467-b51c-45d0e04bfa77
     m_ActionName: Drive/Movement[/Keyboard/w,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b1e83138-e07d-4c3d-86ba-51c432a28e22
+    m_ActionName: Shoot/Aim[/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 70130544-9bae-45bb-b113-2caa519c6126
+    m_ActionName: Shoot/Fire[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Normal
@@ -241,7 +249,7 @@ FixedJoint2D:
   m_ConnectedAnchor: {x: 6.04, y: -2.95}
   m_DampingRatio: 0
   m_Frequency: 0
---- !u!58 &7659502403061804634
+--- !u!58 &3114457782449228337
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,7 +258,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 7659502403061804626}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 6db14968bdee6e841bf64fd22deaab7a, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

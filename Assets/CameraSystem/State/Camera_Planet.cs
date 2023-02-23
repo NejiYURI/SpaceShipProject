@@ -29,15 +29,15 @@ public class Camera_Planet : CameraState
 
     public override void FixedUpdateFunc()
     {
-        Vector3 diff = camctr.Target.GetPlanetDiff();
-        Vector3 _Fpos = camctr.Target.Planet.position + diff* (camctr.FocusRatio/100f);
-        _Fpos.z = camctr.offset.z;
-        _Fpos += diff / 8f;
-        float _dis = Vector2.Distance(_Fpos, camctr.Target.transform.position);
-        float newZoom = Mathf.Lerp(camctr.minZoom, camctr.MaxZoom, _dis / camctr.ZoomLimit);
-        camctr.SetCameraViewField(newZoom);
-        //this.m_Camera.fieldOfView = Mathf.Lerp(m_Camera.fieldOfView, newZoom, Time.deltaTime * ZoomSpeed);
-        camctr.transform.position = Vector3.Lerp(camctr.transform.position, _Fpos, camctr.MoveSpeed);
+        //Vector3 diff = camctr.Target.GetPlanetDiff();
+        //Vector3 _Fpos = camctr.Target.Planet.position + diff* (camctr.FocusRatio/100f);
+        //_Fpos.z = camctr.offset.z;
+        //_Fpos += diff / 8f;
+        //float _dis = Vector2.Distance(_Fpos, camctr.Target.ObjPosition());
+        //float newZoom = Mathf.Lerp(camctr.minZoom, camctr.MaxZoom, _dis / camctr.ZoomLimit);
+        //camctr.SetCameraViewField(newZoom);
+        ////this.m_Camera.fieldOfView = Mathf.Lerp(m_Camera.fieldOfView, newZoom, Time.deltaTime * ZoomSpeed);
+        //camctr.transform.position = Vector3.Lerp(camctr.transform.position, _Fpos, camctr.MoveSpeed);
         RotateCamera();
     }
 }

@@ -9,21 +9,26 @@ public class DrivingState : PlayerState
     {
         ship = i_ship;
         p_con.rg.velocity = Vector2.zero;
+        p_con.rg.simulated = false;
         p_con.transform.position = pos;
+        p_con.transform.SetParent(i_ship.transform,false);
         p_con.Movement = Vector2.zero;
+        ship.DrivignSitIn(p_con);
     }
     public override void StateStart()
     {
+        p_con.IsInShip = true;
         if (ship != null && p_con.fixedJoint != null)
         {
-            p_con.fixedJoint.connectedBody = ship.rg;
-            p_con.fixedJoint.enabled = true;
+            //p_con.fixedJoint.connectedBody = ship.rg;
+            //p_con.fixedJoint.enabled = true;
             p_con.playerInput.SwitchCurrentActionMap("Drive");
         }
+       
     }
     public override void Interactive()
     {
-        Debug.Log("Drive");
+       // Debug.Log("Drive");
     }
 
     public override void FixedUpdateFunc()

@@ -13,12 +13,16 @@ public class CameraControl : CameraStateMachine
     public CinemachineVirtualCamera PlanetCamera;
     public CinemachineTargetGroup targetGroup;
 
+    public GameObject TargetObj;
     /// <summary>
     /// The focus target
     /// </summary>
-    public PlayerController Target;
+    public IF_CharacterObj Target;
 
     public Transform Planet;
+
+    public LayerMask InShipLayer;
+    public LayerMask OutShipLayer;
 
     [Tooltip("The offset position for following target")]
     public Vector3 offset = new Vector3(0f, 0f, -10f);
@@ -32,20 +36,6 @@ public class CameraControl : CameraStateMachine
     [Tooltip("Camera zoom speed")]
     public float ZoomSpeed;
 
-    [Tooltip("Camera position: the ratio between planet and player when focusing")]
-    [Range(0, 100)]
-    public float FocusRatio;
-
-    [Tooltip("Camera field of view minimum")]
-    [Range(1, 20)]
-    public float minZoom;
-    [Tooltip("Camera field of view Maximum")]
-    [Range(1, 20)]
-    public float MaxZoom;
-    [Tooltip("Camera field of view Limit")]
-    [Range(1, 50)]
-    public float ZoomLimit;
-
     private void Awake()
     {
         this.m_Camera = gameObject.GetComponent<Camera>();
@@ -53,11 +43,23 @@ public class CameraControl : CameraStateMachine
 
     private void Start()
     {
+        Target = TargetObj.GetComponent<IF_CharacterObj>();
         SetState(new Camera_Normal(this));
     }
 
     private void Update()
     {
+        if (Target != null)
+        {
+            if (Target.IsInShip)
+            {
+                this.m_Camera.cullingMask = InShipLayer;
+            }
+            else
+            {
+                this.m_Camera.cullingMask = OutShipLayer;
+            }
+        }
         state.UpdateFunc();
     }
 

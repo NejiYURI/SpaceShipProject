@@ -139,14 +139,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee483826b24021e4990768a00ee6357a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Planet: {fileID: 0}
   rg: {fileID: 733033746439307458}
   Gun: {fileID: 3147524261932357919}
   FirePoint: {fileID: 2075494654821967549}
   Bullet: {fileID: 196830787112838069, guid: ba867b9b581bd294392dbec72e0a7cce, type: 3}
-  PushForce: 500
+  PushForce: 200
+  SpeedLimit: 4
   RotSpeed: 500
   GunRotSpeed: 10
-  FireFreq: 1
+  FireFreq: 0.1
+  ShipCamera: {fileID: 0}
 --- !u!1 &733033746978443617
 GameObject:
   m_ObjectHideFlags: 0
