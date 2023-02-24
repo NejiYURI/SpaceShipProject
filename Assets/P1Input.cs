@@ -125,6 +125,15 @@ public partial class @P1Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""47368f50-97ec-473d-b75f-4ff48371efd8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -171,6 +180,17 @@ public partial class @P1Input : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""06721151-40b6-4b23-91c2-a395b660f72f"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -191,6 +211,15 @@ public partial class @P1Input : IInputActionCollection2, IDisposable
                     ""name"": ""Fire"",
                     ""type"": ""Button"",
                     ""id"": ""70130544-9bae-45bb-b113-2caa519c6126"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e97cba0-cee7-4403-b2a1-8117784f95a1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -241,6 +270,129 @@ public partial class @P1Input : IInputActionCollection2, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fddd8e11-6a46-47cf-9c43-de9dd7426bcd"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Operating"",
+            ""id"": ""42a0e97e-c603-408e-8a38-e73e6ba5e2bb"",
+            ""actions"": [
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""78df045d-122d-4751-9a33-59876c2076d3"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""2bbfd524-60d2-4e43-a7d5-a07fe34ef9b6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e763281-b89f-42e9-8aca-4c35501f8719"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""1b0fcef5-403c-4007-8705-ec2ce6e55f35"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""4d914e1e-cc43-4b17-8cd3-680dc22d86ec"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""f2a2016e-b283-440d-b7fc-426142c01e5a"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""43acce53-79a3-4fc4-a554-751133d55969"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c2b54458-ac69-45ef-bc3b-dcf751ba4f1a"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc798242-8051-4284-9df1-58b4664c6a86"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""890dc8d0-1b42-432e-b3a7-6b3f571d0e2c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -255,10 +407,17 @@ public partial class @P1Input : IInputActionCollection2, IDisposable
         // Drive
         m_Drive = asset.FindActionMap("Drive", throwIfNotFound: true);
         m_Drive_Movement = m_Drive.FindAction("Movement", throwIfNotFound: true);
+        m_Drive_Exit = m_Drive.FindAction("Exit", throwIfNotFound: true);
         // Shoot
         m_Shoot = asset.FindActionMap("Shoot", throwIfNotFound: true);
         m_Shoot_Aim = m_Shoot.FindAction("Aim", throwIfNotFound: true);
         m_Shoot_Fire = m_Shoot.FindAction("Fire", throwIfNotFound: true);
+        m_Shoot_Exit = m_Shoot.FindAction("Exit", throwIfNotFound: true);
+        // Operating
+        m_Operating = asset.FindActionMap("Operating", throwIfNotFound: true);
+        m_Operating_Movement = m_Operating.FindAction("Movement", throwIfNotFound: true);
+        m_Operating_Interact = m_Operating.FindAction("Interact", throwIfNotFound: true);
+        m_Operating_Exit = m_Operating.FindAction("Exit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -368,11 +527,13 @@ public partial class @P1Input : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Drive;
     private IDriveActions m_DriveActionsCallbackInterface;
     private readonly InputAction m_Drive_Movement;
+    private readonly InputAction m_Drive_Exit;
     public struct DriveActions
     {
         private @P1Input m_Wrapper;
         public DriveActions(@P1Input wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Drive_Movement;
+        public InputAction @Exit => m_Wrapper.m_Drive_Exit;
         public InputActionMap Get() { return m_Wrapper.m_Drive; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -385,6 +546,9 @@ public partial class @P1Input : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_DriveActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_DriveActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_DriveActionsCallbackInterface.OnMovement;
+                @Exit.started -= m_Wrapper.m_DriveActionsCallbackInterface.OnExit;
+                @Exit.performed -= m_Wrapper.m_DriveActionsCallbackInterface.OnExit;
+                @Exit.canceled -= m_Wrapper.m_DriveActionsCallbackInterface.OnExit;
             }
             m_Wrapper.m_DriveActionsCallbackInterface = instance;
             if (instance != null)
@@ -392,6 +556,9 @@ public partial class @P1Input : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Exit.started += instance.OnExit;
+                @Exit.performed += instance.OnExit;
+                @Exit.canceled += instance.OnExit;
             }
         }
     }
@@ -402,12 +569,14 @@ public partial class @P1Input : IInputActionCollection2, IDisposable
     private IShootActions m_ShootActionsCallbackInterface;
     private readonly InputAction m_Shoot_Aim;
     private readonly InputAction m_Shoot_Fire;
+    private readonly InputAction m_Shoot_Exit;
     public struct ShootActions
     {
         private @P1Input m_Wrapper;
         public ShootActions(@P1Input wrapper) { m_Wrapper = wrapper; }
         public InputAction @Aim => m_Wrapper.m_Shoot_Aim;
         public InputAction @Fire => m_Wrapper.m_Shoot_Fire;
+        public InputAction @Exit => m_Wrapper.m_Shoot_Exit;
         public InputActionMap Get() { return m_Wrapper.m_Shoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -423,6 +592,9 @@ public partial class @P1Input : IInputActionCollection2, IDisposable
                 @Fire.started -= m_Wrapper.m_ShootActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_ShootActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_ShootActionsCallbackInterface.OnFire;
+                @Exit.started -= m_Wrapper.m_ShootActionsCallbackInterface.OnExit;
+                @Exit.performed -= m_Wrapper.m_ShootActionsCallbackInterface.OnExit;
+                @Exit.canceled -= m_Wrapper.m_ShootActionsCallbackInterface.OnExit;
             }
             m_Wrapper.m_ShootActionsCallbackInterface = instance;
             if (instance != null)
@@ -433,10 +605,62 @@ public partial class @P1Input : IInputActionCollection2, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @Exit.started += instance.OnExit;
+                @Exit.performed += instance.OnExit;
+                @Exit.canceled += instance.OnExit;
             }
         }
     }
     public ShootActions @Shoot => new ShootActions(this);
+
+    // Operating
+    private readonly InputActionMap m_Operating;
+    private IOperatingActions m_OperatingActionsCallbackInterface;
+    private readonly InputAction m_Operating_Movement;
+    private readonly InputAction m_Operating_Interact;
+    private readonly InputAction m_Operating_Exit;
+    public struct OperatingActions
+    {
+        private @P1Input m_Wrapper;
+        public OperatingActions(@P1Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Operating_Movement;
+        public InputAction @Interact => m_Wrapper.m_Operating_Interact;
+        public InputAction @Exit => m_Wrapper.m_Operating_Exit;
+        public InputActionMap Get() { return m_Wrapper.m_Operating; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OperatingActions set) { return set.Get(); }
+        public void SetCallbacks(IOperatingActions instance)
+        {
+            if (m_Wrapper.m_OperatingActionsCallbackInterface != null)
+            {
+                @Movement.started -= m_Wrapper.m_OperatingActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_OperatingActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_OperatingActionsCallbackInterface.OnMovement;
+                @Interact.started -= m_Wrapper.m_OperatingActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_OperatingActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_OperatingActionsCallbackInterface.OnInteract;
+                @Exit.started -= m_Wrapper.m_OperatingActionsCallbackInterface.OnExit;
+                @Exit.performed -= m_Wrapper.m_OperatingActionsCallbackInterface.OnExit;
+                @Exit.canceled -= m_Wrapper.m_OperatingActionsCallbackInterface.OnExit;
+            }
+            m_Wrapper.m_OperatingActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
+                @Exit.started += instance.OnExit;
+                @Exit.performed += instance.OnExit;
+                @Exit.canceled += instance.OnExit;
+            }
+        }
+    }
+    public OperatingActions @Operating => new OperatingActions(this);
     public interface INormalActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -446,10 +670,18 @@ public partial class @P1Input : IInputActionCollection2, IDisposable
     public interface IDriveActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnExit(InputAction.CallbackContext context);
     }
     public interface IShootActions
     {
         void OnAim(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnExit(InputAction.CallbackContext context);
+    }
+    public interface IOperatingActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnExit(InputAction.CallbackContext context);
     }
 }

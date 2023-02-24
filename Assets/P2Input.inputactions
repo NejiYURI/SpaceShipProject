@@ -81,7 +81,7 @@
                 {
                     "name": "",
                     "id": "1be6b104-3f34-4b04-99f1-fcfacda004af",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/period",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -103,6 +103,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "b9f5c44e-374b-4edc-9408-60fc653436ad",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -149,6 +158,17 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e652ab77-d616-4cb5-b4b9-fcfdb08f30bb",
+                    "path": "<Keyboard>/slash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -169,6 +189,15 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "70130544-9bae-45bb-b113-2caa519c6126",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "f9179b75-d16d-4028-9c70-12133d455dc0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -212,11 +241,22 @@
                 {
                     "name": "",
                     "id": "96c9818b-fc91-4ebf-9fc5-4279b60a0f33",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/period",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b48a2738-9cbe-411f-a9fa-94b9b833c360",
+                    "path": "<Keyboard>/slash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class DrivingState : PlayerState
 {
@@ -11,7 +12,7 @@ public class DrivingState : PlayerState
         p_con.rg.velocity = Vector2.zero;
         p_con.rg.simulated = false;
         p_con.transform.position = pos;
-        p_con.transform.SetParent(i_ship.transform,false);
+        p_con.transform.SetParent(i_ship.transform);
         p_con.Movement = Vector2.zero;
         ship.DrivignSitIn(p_con);
     }
@@ -36,5 +37,15 @@ public class DrivingState : PlayerState
         float pushF = p_con.Movement.y > 0f ? 1f : 0f;
         float rot = p_con.Movement.x == 0f ? 0f : (p_con.Movement.x > 0 ? -1f : 1f);
         ship.ShipMove(pushF, rot);
+    }
+
+    public override void Exit()
+    {
+        p_con.transform.SetParent(null);
+        ship.DrivignSitOut();
+        ship = null;
+        p_con.rg.simulated = true;
+        p_con.IsInShip = false;
+        p_con.SetState(new NormalState(p_con));
     }
 }

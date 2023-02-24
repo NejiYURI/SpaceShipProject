@@ -22,9 +22,7 @@ public class Camera_Normal : CameraState
 
     public override void FixedUpdateFunc()
     {
-        //camctr.transform.position = Vector3.Lerp(camctr.transform.position, camctr.Target.transform.position + camctr.offset, camctr.MoveSpeed);
-        //camctr.SetCameraViewField(camctr.ZoomoutSize);
-        //RotateCamera();
+
     }
 
     public override void RotateCamera()

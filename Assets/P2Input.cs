@@ -103,7 +103,7 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1be6b104-3f34-4b04-99f1-fcfacda004af"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/period"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -125,6 +125,15 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9f5c44e-374b-4edc-9408-60fc653436ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -171,6 +180,17 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e652ab77-d616-4cb5-b4b9-fcfdb08f30bb"",
+                    ""path"": ""<Keyboard>/slash"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -191,6 +211,15 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
                     ""name"": ""Fire"",
                     ""type"": ""Button"",
                     ""id"": ""70130544-9bae-45bb-b113-2caa519c6126"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""f9179b75-d16d-4028-9c70-12133d455dc0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -234,11 +263,22 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""96c9818b-fc91-4ebf-9fc5-4279b60a0f33"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/period"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b48a2738-9cbe-411f-a9fa-94b9b833c360"",
+                    ""path"": ""<Keyboard>/slash"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -255,10 +295,12 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
         // Drive
         m_Drive = asset.FindActionMap("Drive", throwIfNotFound: true);
         m_Drive_Movement = m_Drive.FindAction("Movement", throwIfNotFound: true);
+        m_Drive_Exit = m_Drive.FindAction("Exit", throwIfNotFound: true);
         // Shoot
         m_Shoot = asset.FindActionMap("Shoot", throwIfNotFound: true);
         m_Shoot_Aim = m_Shoot.FindAction("Aim", throwIfNotFound: true);
         m_Shoot_Fire = m_Shoot.FindAction("Fire", throwIfNotFound: true);
+        m_Shoot_Exit = m_Shoot.FindAction("Exit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -368,11 +410,13 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Drive;
     private IDriveActions m_DriveActionsCallbackInterface;
     private readonly InputAction m_Drive_Movement;
+    private readonly InputAction m_Drive_Exit;
     public struct DriveActions
     {
         private @P2Input m_Wrapper;
         public DriveActions(@P2Input wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Drive_Movement;
+        public InputAction @Exit => m_Wrapper.m_Drive_Exit;
         public InputActionMap Get() { return m_Wrapper.m_Drive; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -385,6 +429,9 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_DriveActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_DriveActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_DriveActionsCallbackInterface.OnMovement;
+                @Exit.started -= m_Wrapper.m_DriveActionsCallbackInterface.OnExit;
+                @Exit.performed -= m_Wrapper.m_DriveActionsCallbackInterface.OnExit;
+                @Exit.canceled -= m_Wrapper.m_DriveActionsCallbackInterface.OnExit;
             }
             m_Wrapper.m_DriveActionsCallbackInterface = instance;
             if (instance != null)
@@ -392,6 +439,9 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Exit.started += instance.OnExit;
+                @Exit.performed += instance.OnExit;
+                @Exit.canceled += instance.OnExit;
             }
         }
     }
@@ -402,12 +452,14 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
     private IShootActions m_ShootActionsCallbackInterface;
     private readonly InputAction m_Shoot_Aim;
     private readonly InputAction m_Shoot_Fire;
+    private readonly InputAction m_Shoot_Exit;
     public struct ShootActions
     {
         private @P2Input m_Wrapper;
         public ShootActions(@P2Input wrapper) { m_Wrapper = wrapper; }
         public InputAction @Aim => m_Wrapper.m_Shoot_Aim;
         public InputAction @Fire => m_Wrapper.m_Shoot_Fire;
+        public InputAction @Exit => m_Wrapper.m_Shoot_Exit;
         public InputActionMap Get() { return m_Wrapper.m_Shoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -423,6 +475,9 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
                 @Fire.started -= m_Wrapper.m_ShootActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_ShootActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_ShootActionsCallbackInterface.OnFire;
+                @Exit.started -= m_Wrapper.m_ShootActionsCallbackInterface.OnExit;
+                @Exit.performed -= m_Wrapper.m_ShootActionsCallbackInterface.OnExit;
+                @Exit.canceled -= m_Wrapper.m_ShootActionsCallbackInterface.OnExit;
             }
             m_Wrapper.m_ShootActionsCallbackInterface = instance;
             if (instance != null)
@@ -433,6 +488,9 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @Exit.started += instance.OnExit;
+                @Exit.performed += instance.OnExit;
+                @Exit.canceled += instance.OnExit;
             }
         }
     }
@@ -446,10 +504,12 @@ public partial class @P2Input : IInputActionCollection2, IDisposable
     public interface IDriveActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnExit(InputAction.CallbackContext context);
     }
     public interface IShootActions
     {
         void OnAim(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnExit(InputAction.CallbackContext context);
     }
 }

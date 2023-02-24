@@ -147,7 +147,7 @@ MonoBehaviour:
   PushForce: 200
   SpeedLimit: 4
   RotSpeed: 500
-  GunRotSpeed: 10
+  GunRotSpeed: 300
   FireFreq: 0.1
   ShipCamera: {fileID: 0}
 --- !u!1 &733033746978443617

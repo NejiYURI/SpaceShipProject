@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4677920385711658370}
   - component: {fileID: 4677920385711658373}
   - component: {fileID: 4677920385711658372}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ PointEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 1023
+    m_Bits: 5119
   m_ForceMagnitude: -50
   m_ForceVariation: 0
   m_DistanceScale: 0.01

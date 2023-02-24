@@ -33,6 +33,6 @@ public class CameraState
         int offset = (sign >= 0) ? 0 : 360;
         float angle = Vector2.Angle(_dir.normalized, Vector2.up) * sign + offset;
         //camctr.transform.LeanRotateZ(angle, 0.1f);
-        camctr.PlanetCamera.transform.LeanRotateZ(angle, 0.1f);
+        camctr.PlanetCamera.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 }

@@ -10,6 +10,7 @@ public class NormalState : PlayerState
     }
     public override void StateStart()
     {
+        p_con.playerInput.SwitchCurrentActionMap("Normal");
         p_con.fixedJoint.enabled = false;
     }
 
@@ -37,7 +38,7 @@ public class NormalState : PlayerState
     }
     public override void Interactive()
     {
-        IF_InteractiveObj getObj = p_con.GetFirstInteractiveObj();
+        InteractiveObj getObj = p_con.GetFirstInteractiveObj();
         if (getObj != null)
         {
             getObj.ObjTrigger(p_con);

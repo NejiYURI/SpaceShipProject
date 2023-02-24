@@ -31,12 +31,12 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
 
     [HideInInspector]
     public FixedJoint2D fixedJoint;
-    private Dictionary<GameObject, IF_InteractiveObj> interactiveObjs;
+    private Dictionary<GameObject, InteractiveObj> interactiveObjs;
     public PlayerInput playerInput;
     private void Start()
     {
         fixedJoint = GetComponent<FixedJoint2D>();
-        interactiveObjs = new Dictionary<GameObject, IF_InteractiveObj>();
+        interactiveObjs = new Dictionary<GameObject, InteractiveObj>();
         this.rg = GetComponent<Rigidbody2D>();
         SetState(new NormalState(this));
     }
@@ -55,8 +55,14 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
     {
         if (context.performed)
             state.Interactive();
-        else
+        else if (context.canceled)
             state.InteractiveCancel();
+    }
+
+    public void OnExitInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            state.Exit();
     }
 
 
@@ -65,9 +71,9 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
         state.FixedUpdateFunc();
     }
 
-    public IF_InteractiveObj GetFirstInteractiveObj()
+    public InteractiveObj GetFirstInteractiveObj()
     {
-        IF_InteractiveObj rslt = null;
+        InteractiveObj rslt = null;
         int p_value = -1;
         foreach (var item in interactiveObjs)
         {
@@ -101,10 +107,10 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.GetComponent<IF_InteractiveObj>() != null && !interactiveObjs.ContainsKey(col.gameObject))
+        if (col.GetComponent<InteractiveObj>() != null && !interactiveObjs.ContainsKey(col.gameObject))
         {
             //Debug.Log(this.name + " in " + col.name);
-            interactiveObjs.Add(col.gameObject, col.GetComponent<IF_InteractiveObj>());
+            interactiveObjs.Add(col.gameObject, col.GetComponent<InteractiveObj>());
         }
         if (col.tag.Equals("PlanetGravity"))
         {
@@ -120,7 +126,7 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.GetComponent<IF_InteractiveObj>() != null && interactiveObjs.ContainsKey(col.gameObject))
+        if (col.GetComponent<InteractiveObj>() != null && interactiveObjs.ContainsKey(col.gameObject))
         {
             Debug.Log(this.name + " out " + col.name);
             interactiveObjs.Remove(col.gameObject);

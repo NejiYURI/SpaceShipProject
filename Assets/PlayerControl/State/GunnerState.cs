@@ -12,7 +12,7 @@ public class GunnerState : PlayerState
         p_con.rg.simulated = false;
         p_con.transform.position = pos;
         p_con.Movement = Vector2.zero;
-        p_con.transform.SetParent(i_ship.transform, false);
+        p_con.transform.SetParent(i_ship.transform);
         ship.GunnerSitIn(p_con);
     }
     public override void StateStart()
@@ -37,5 +37,15 @@ public class GunnerState : PlayerState
     public override void FixedUpdateFunc()
     {
         ship.RotateGun(-1f * p_con.Movement.x);
+    }
+
+    public override void Exit()
+    {
+        p_con.transform.SetParent(null);
+        ship.GunnerSitOut();
+        ship = null;
+        p_con.rg.simulated = true;
+        p_con.IsInShip = false;
+        p_con.SetState(new NormalState(p_con));
     }
 }
