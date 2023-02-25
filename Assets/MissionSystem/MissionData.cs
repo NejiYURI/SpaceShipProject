@@ -7,6 +7,7 @@ public class MissionData : ScriptableObject
 {
     public string MissionName;
 
+    public string MissionDescription;
     public virtual void MissionSetup(Transform TargetPlanet, string MissionId, out MissionScript mission)
     {
         mission = null;

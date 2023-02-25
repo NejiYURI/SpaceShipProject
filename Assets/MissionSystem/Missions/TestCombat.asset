@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: TestCombat
   m_EditorClassIdentifier: 
   MissionName: Test
+  MissionDescription: Clear all enemies in <-c>#name</color>
   EnemyObj: {fileID: 2188012907594901495, guid: 28773e97d899aab458ff301342b2ab85, type: 3}
   SpawnNumber: 5

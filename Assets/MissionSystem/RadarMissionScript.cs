@@ -28,7 +28,6 @@ public class RadarMissionScript : MissionScript
                     GameEventManager.instance.MissionTrigger.RemoveListener(MissionTriggered);
                     GameEventManager.instance.MissionClear.Invoke(this.CompleteId);
                 }
-                
             }
         }
     }

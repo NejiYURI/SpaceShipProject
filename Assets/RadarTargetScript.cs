@@ -12,6 +12,7 @@ public class RadarTargetScript : MonoBehaviour
     [SerializeField]
     private float StayCount = 0f;
     private bool CanActive;
+    private bool IsClear;
     private void Start()
     {
         StayCount = 0f;
@@ -21,7 +22,8 @@ public class RadarTargetScript : MonoBehaviour
 
     private void Update()
     {
-        StayCount = Mathf.Clamp(StayCount - (Time.deltaTime / 2f), 0, GoalCount);
+        if (IsClear) return;
+        StayCount = Mathf.Clamp(StayCount - (Time.deltaTime / 4f), 0, GoalCount);
         targetSprite.color = Color.Lerp(new Color(StartColor.r, StartColor.g, StartColor.b, CanActive ? 1f : 0.4f),new Color(CompleteColor.r, CompleteColor.g, CompleteColor.b, CanActive ? 1f : 0.4f), StayCount/ GoalCount);
     }
 
@@ -43,9 +45,12 @@ public class RadarTargetScript : MonoBehaviour
         if (col.tag.Equals("Ship") && CanActive)
         {
             StayCount += Time.deltaTime;
-            if (StayCount >= GoalCount)
+            if (StayCount >= GoalCount && !IsClear)
             {
-                Debug.Log("Complete !");
+                targetSprite.maskInteraction = SpriteMaskInteraction.None;
+                targetSprite.color = CompleteColor;
+                IsClear = true;
+                if (GameEventManager.instance) GameEventManager.instance.MissionTrigger.Invoke(MissionId);
             }
         }
     }

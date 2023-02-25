@@ -82,7 +82,8 @@ public class ShipContoller : MonoBehaviour, IF_CharacterObj
     public void ShipMove(float pushF, float Rot)
     {
         this.rg.AddForce(this.transform.up * pushF * PushForce);
-        this.rg.AddTorque(Rot * RotSpeed);
+        //this.rg.AddTorque(Rot * RotSpeed);
+        this.rg.rotation += Rot * RotSpeed * Time.deltaTime;
         if (this.rg.velocity.magnitude > SpeedLimit)
         {
             this.rg.velocity = this.rg.velocity.normalized * SpeedLimit;

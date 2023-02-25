@@ -102,8 +102,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
+  m_Mass: 50
+  m_LinearDrag: 0.1
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -145,8 +145,8 @@ MonoBehaviour:
   FirePoint: {fileID: 2075494654821967549}
   Bullet: {fileID: 196830787112838069, guid: ba867b9b581bd294392dbec72e0a7cce, type: 3}
   PushForce: 200
-  SpeedLimit: 4
-  RotSpeed: 500
+  SpeedLimit: 5
+  RotSpeed: 55
   GunRotSpeed: 300
   FireFreq: 0.1
   ShipCamera: {fileID: 0}

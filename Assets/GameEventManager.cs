@@ -12,4 +12,6 @@ public class GameEventManager : MonoBehaviour
     }
     public UnityEvent<string> MissionTrigger;
     public UnityEvent<string> MissionClear;
+
+    public UnityEvent GameClear;
 }
