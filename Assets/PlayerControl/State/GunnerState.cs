@@ -4,45 +4,46 @@ using UnityEngine;
 
 public class GunnerState : PlayerState
 {
-    private ShipContoller ship;
-    public GunnerState(PlayerController p_con, ShipContoller i_ship, Vector2 pos) : base(p_con)
+    private GunnerPart ship;
+    public GunnerState(PlayerController p_con, GunnerPart i_ship) : base(p_con)
     {
         ship = i_ship;
         p_con.rg.velocity = Vector2.zero;
         p_con.rg.simulated = false;
-        p_con.transform.position = pos;
+        p_con.transform.position = i_ship.targetPos;
         p_con.Movement = Vector2.zero;
         p_con.transform.SetParent(i_ship.transform);
-        ship.GunnerSitIn(p_con);
+        ship.shipContoller.GunnerSitIn(p_con);
     }
     public override void StateStart()
     {
         p_con.IsInShip = true;
         if (ship != null && p_con.fixedJoint != null)
         {
-            p_con.fixedJoint.connectedBody = ship.rg;
-            p_con.fixedJoint.enabled = true;
+            //p_con.fixedJoint.connectedBody = ship.rg;
+            //p_con.fixedJoint.enabled = true;
             p_con.playerInput.SwitchCurrentActionMap("Shoot");
         }
     }
     public override void Interactive()
     {
-        ship.FireWeapon(true);
+        ship.shipContoller.FireWeapon(true);
     }
     public override void InteractiveCancel()
     {
-        ship.FireWeapon(false);
+        ship.shipContoller.FireWeapon(false);
     }
 
     public override void FixedUpdateFunc()
     {
-        ship.RotateGun(-1f * p_con.Movement.x);
+        ship.shipContoller.RotateGun(-1f * p_con.Movement.x);
     }
 
     public override void Exit()
     {
         p_con.transform.SetParent(null);
-        ship.GunnerSitOut();
+        ship.shipContoller.GunnerSitOut();
+        ship.ObjExit();
         ship = null;
         p_con.rg.simulated = true;
         p_con.IsInShip = false;

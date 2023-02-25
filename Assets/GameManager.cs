@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class PlanetData
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     public Transform TaskList;
     public GameObject TaskLabel;
+
+    public GameObject GameOverUI;
 
     private Dictionary<string, TextMeshProUGUI> TaskDatas;
 
@@ -78,7 +81,21 @@ public class GameManager : MonoBehaviour
         if (AllClear)
         {
             if (GameEventManager.instance) GameEventManager.instance.GameClear.Invoke();
+            if (GameOverUI != null)
+            {
+                GameOverUI.SetActive(true);
+            }
         }
+    }
+
+    public void Btn_Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Btn_Title()
+    {
+        SceneManager.LoadScene("Title");
     }
 
 }

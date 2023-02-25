@@ -187,7 +187,7 @@ MonoBehaviour:
   targetSprite: {fileID: 6382742072215847078}
   StartColor: {r: 1, g: 0, b: 0, a: 1}
   CompleteColor: {r: 0, g: 1, b: 0, a: 1}
-  GoalCount: 3
+  GoalCount: 2
   StayCount: 0
 --- !u!58 &6382742072215847083
 CircleCollider2D:

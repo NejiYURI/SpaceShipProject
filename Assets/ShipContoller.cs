@@ -20,6 +20,7 @@ public class ShipContoller : MonoBehaviour, IF_CharacterObj
         }
     }
     public Rigidbody2D rg;
+    public GameObject Fire;
 
     public Transform Gun;
     public Transform FirePoint;
@@ -39,7 +40,10 @@ public class ShipContoller : MonoBehaviour, IF_CharacterObj
     private PlayerController GunnerSit_P;
 
     public Camera ShipCamera;
-
+    private void Start()
+    {
+        if (GameEventManager.instance) GameEventManager.instance.GameClear.AddListener(GameOver);
+    }
 
     private void Update()
     {
@@ -53,6 +57,12 @@ public class ShipContoller : MonoBehaviour, IF_CharacterObj
             ShipCamera.depth = -2;
         }
     }
+
+    void GameOver()
+    {
+        rg.bodyType = RigidbodyType2D.Static;
+    }
+
     public void DrivignSitIn(PlayerController player)
     {
         DriverSit_P = player;
@@ -81,6 +91,7 @@ public class ShipContoller : MonoBehaviour, IF_CharacterObj
 
     public void ShipMove(float pushF, float Rot)
     {
+        Fire.SetActive(pushF != 0);
         this.rg.AddForce(this.transform.up * pushF * PushForce);
         //this.rg.AddTorque(Rot * RotSpeed);
         this.rg.rotation += Rot * RotSpeed * Time.deltaTime;

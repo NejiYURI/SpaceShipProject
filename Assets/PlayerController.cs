@@ -38,8 +38,10 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
         fixedJoint = GetComponent<FixedJoint2D>();
         interactiveObjs = new Dictionary<GameObject, InteractiveObj>();
         this.rg = GetComponent<Rigidbody2D>();
+        if (GameEventManager.instance) GameEventManager.instance.GameClear.AddListener(GameOver);
         SetState(new NormalState(this));
     }
+
 
     public void OnMoveInput(InputAction.CallbackContext context)
     {
@@ -86,14 +88,9 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
         return rslt;
     }
 
-    public void SetDriving(ShipContoller ship, Vector2 i_pos)
-    {
-        SetState(new DrivingState(this, ship, i_pos));
-    }
-
     public void SetGunner(ShipContoller ship, Vector2 i_pos)
     {
-        SetState(new GunnerState(this, ship, i_pos));
+        
     }
 
     public Vector3 GetPlanetDiff()
@@ -103,6 +100,12 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
     public Vector2 ObjPosition()
     {
         return this.transform.position;
+    }
+
+
+    void GameOver()
+    {
+        playerInput.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D col)

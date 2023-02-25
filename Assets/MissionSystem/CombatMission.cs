@@ -11,7 +11,7 @@ public class CombatMission : MissionData
     {
         for (int cnt = 0; cnt < SpawnNumber; cnt++)
         {
-            float Range = TargetPlanet.localScale.x / 2 + 3;
+            float Range = TargetPlanet.localScale.x / 2 + 5;
             float angle = 2 * Mathf.PI * Random.Range(0f, 1f);
             float x = Range * Mathf.Cos(angle);
             float y = Range * Mathf.Sin(angle);

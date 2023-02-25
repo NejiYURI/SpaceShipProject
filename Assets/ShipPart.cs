@@ -9,12 +9,21 @@ public class ShipPart : InteractiveObj
     public ShipContoller shipContoller;
     public override void ObjTrigger(PlayerController playerController)
     {
-        playerController.SetDriving(shipContoller, this.transform.position);
+        if (!IsUsing)
+        {
+            IsUsing = true;
+            playerController.SetState(new DrivingState(playerController,this));
+        }
+    }
+
+    public override void ObjExit()
+    {
+        IsUsing = false;
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       // Debug.Log("In");
+        // Debug.Log("In");
     }
 }

@@ -10,6 +10,15 @@ public class GunnerPart : InteractiveObj
 
     public override void ObjTrigger(PlayerController playerController)
     {
-        playerController.SetGunner(shipContoller, this.transform.position);
+        if (!IsUsing)
+        {
+            IsUsing = true;
+            playerController.SetState(new GunnerState(playerController, this));
+        }
+    }
+
+    public override void ObjExit()
+    {
+        IsUsing = false;
     }
 }
