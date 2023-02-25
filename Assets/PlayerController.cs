@@ -114,7 +114,6 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
         }
         if (col.tag.Equals("PlanetGravity"))
         {
-            Debug.Log("In Planet");
             this.Planet = col.transform.parent;
         }
     }
@@ -128,12 +127,10 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
     {
         if (col.GetComponent<InteractiveObj>() != null && interactiveObjs.ContainsKey(col.gameObject))
         {
-            Debug.Log(this.name + " out " + col.name);
             interactiveObjs.Remove(col.gameObject);
         }
         if (col.tag.Equals("PlanetGravity") && col.transform.parent == this.Planet)
         {
-            Debug.Log("out Planet");
             this.Planet = null;
         }
     }

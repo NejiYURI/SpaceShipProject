@@ -7,6 +7,7 @@ TagManager:
   - Ship
   - ShipPart
   - PlanetGravity
+  - Radar
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ship
+    uniqueID: 765037543
+    locked: 0
+  - name: Player
+    uniqueID: 2055253717
     locked: 0

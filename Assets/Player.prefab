@@ -75,9 +75,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 2055253717
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 1876831103, guid: 54c5078d07a47934799ec50677aaeeaf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -262,6 +262,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3e97cba0-cee7-4403-b2a1-8117784f95a1
     m_ActionName: Shoot/Exit[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 78df045d-122d-4751-9a33-59876c2076d3
+    m_ActionName: Operating/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2bbfd524-60d2-4e43-a7d5-a07fe34ef9b6
+    m_ActionName: Operating/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8e763281-b89f-42e9-8aca-4c35501f8719
+    m_ActionName: Operating/Exit[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Normal

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6bc12c8c6b352e41bd6de02ca1af8e4, type: 3}
+  m_Name: TestRadarMission
+  m_EditorClassIdentifier: 
+  MissionName: RadarMission
+  CenterObject: {fileID: 5048796352812113263, guid: 2b6ff410a3d202e488fe7b949141a217, type: 3}
+  TargetObj: {fileID: 6382742072215847079, guid: 50b58ee5c5cd1d84ba005a821d685a9b, type: 3}
+  Radar: {fileID: 2073690241455759904, guid: 774937d048ce9f244ba5702f3a09a4ef, type: 3}
+  TargetSpawnNumber: 3
+  RecieverSpawnNumber: 3
