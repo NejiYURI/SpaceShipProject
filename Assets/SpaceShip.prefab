@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 733033746439307458}
   - component: {fileID: 733033746439307469}
   - component: {fileID: 733033746439307471}
+  - component: {fileID: 1078899588}
   m_Layer: 3
   m_Name: SpaceShip
   m_TagString: Ship
@@ -152,6 +153,22 @@ MonoBehaviour:
   GunRotSpeed: 150
   FireFreq: 0.2
   ShipCamera: {fileID: 0}
+--- !u!114 &1078899588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733033746439307457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b13e9a68a206924b944a0c413414360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 0}
+  MainCanvas: {fileID: 0}
+  Pointer: {fileID: 1774956147127548444, guid: 7d0c556f53c45ac44869b474890f1ff8, type: 3}
+  CharacterObj: {fileID: 733033746439307457}
 --- !u!1 &733033746978443617
 GameObject:
   m_ObjectHideFlags: 0

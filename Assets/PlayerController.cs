@@ -50,7 +50,7 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
 
     public void OnJumpInput(InputAction.CallbackContext context)
     {
-        state.Jump();
+        //state.Jump();
     }
 
     public void OnInteractionInput(InputAction.CallbackContext context)

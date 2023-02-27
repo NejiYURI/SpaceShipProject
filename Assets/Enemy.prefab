@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MissionId: 
   Health: 2
+  ExplosionObj: {fileID: 2287526007033651160, guid: 373d2c0362c4e2c4d8658332b74f801f, type: 3}
 --- !u!61 &8598520746645782227
 BoxCollider2D:
   m_ObjectHideFlags: 0

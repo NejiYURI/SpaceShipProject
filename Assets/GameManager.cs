@@ -12,6 +12,7 @@ public class PlanetData
     public Color TagColor;
     public MissionData mission;
     public MissionScript missionScript;
+    public bool NeedMission;
 }
 public class GameManager : MonoBehaviour
 {
@@ -32,6 +33,18 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.O))
+        {
+            Btn_Title();
+        }
+        if (Input.GetKey(KeyCode.P))
+        {
+            Btn_Retry();
+        }
+    }
     private void Start()
     {
         List<string> EnableNameList = new List<string>();
@@ -44,6 +57,7 @@ public class GameManager : MonoBehaviour
             int MissionCounter = 0;
             foreach (var item in planets)
             {
+                if (!item.NeedMission) continue;
                 string MissionId = "M_" + MissionCounter++;
                 int missionInt = Random.Range(0, EnableMission.Count);
                 item.mission = EnableMission[missionInt];
@@ -72,6 +86,7 @@ public class GameManager : MonoBehaviour
         }
         foreach (var item in planets)
         {
+            if (!item.NeedMission) continue;
             if (!item.missionScript.IsComplete)
             {
                 AllClear = false;

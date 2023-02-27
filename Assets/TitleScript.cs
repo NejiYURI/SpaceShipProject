@@ -9,4 +9,9 @@ public class TitleScript : MonoBehaviour
     {
         SceneManager.LoadScene("GamePlay");
     }
+
+    public void GameQuit()
+    {
+        Application.Quit();
+    }
 }

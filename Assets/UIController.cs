@@ -23,10 +23,14 @@ public class UIController : MonoBehaviour
 
     public GameObject Pointer;
 
+    public GameObject CharacterObj;
+    private IF_CharacterObj characterObj;
+
     private List<PointerObj> m_Pointers = new List<PointerObj>();
 
     private void Start()
     {
+        if (CharacterObj!=null && CharacterObj.GetComponent<IF_CharacterObj>() != null) characterObj = CharacterObj.GetComponent<IF_CharacterObj>();
         if (GameManager.instance)
         {
             foreach (var item in GameManager.instance.planets)
@@ -48,6 +52,10 @@ public class UIController : MonoBehaviour
 
         foreach (var item in m_Pointers)
         {
+            if (characterObj != null)
+            {
+                item.Show = characterObj.Planet == null || characterObj.Planet != item.TargetObj;
+            }
             if (!item.Show)
             {
                 item.Pointer_UI.gameObject.SetActive(false);
@@ -63,7 +71,7 @@ public class UIController : MonoBehaviour
             Vector2 WorldObject_ScreenPosition = new Vector2(Xpos, YPos);
 
             Vector2 newDir = (Vector2)item.TargetObj.transform.position - (Vector2)MainCanvas.transform.position;
-            float angle = Mathf.Atan2(newDir.y, newDir.x) * Mathf.Rad2Deg -90;
+            float angle = Mathf.Atan2(newDir.y, newDir.x) * Mathf.Rad2Deg - 90;
             item.Pointer_UI.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             item.Pointer_UI.anchoredPosition = WorldObject_ScreenPosition;
         }

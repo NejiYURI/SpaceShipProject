@@ -9,6 +9,7 @@ public class RadarTargetScript : MonoBehaviour
     public Color StartColor = Color.white;
     public Color CompleteColor = Color.green;
     public float GoalCount = 5f;
+    public SpriteRenderer CompleteSprite;
     [SerializeField]
     private float StayCount = 0f;
     private bool CanActive;
@@ -17,6 +18,7 @@ public class RadarTargetScript : MonoBehaviour
     {
         StayCount = 0f;
         targetSprite.color = StartColor;
+        CompleteSprite.enabled = false;
         ControlSpriteShow(false);
     }
 
@@ -49,6 +51,7 @@ public class RadarTargetScript : MonoBehaviour
             {
                 targetSprite.maskInteraction = SpriteMaskInteraction.None;
                 targetSprite.color = CompleteColor;
+                CompleteSprite.enabled = true;
                 IsClear = true;
                 if (GameEventManager.instance) GameEventManager.instance.MissionTrigger.Invoke(MissionId);
             }

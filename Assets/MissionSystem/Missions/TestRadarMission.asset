@@ -18,4 +18,4 @@ MonoBehaviour:
   TargetObj: {fileID: 6382742072215847079, guid: 50b58ee5c5cd1d84ba005a821d685a9b, type: 3}
   Radar: {fileID: 2073690241455759904, guid: 774937d048ce9f244ba5702f3a09a4ef, type: 3}
   TargetSpawnNumber: 3
-  RecieverSpawnNumber: 3
+  RecieverSpawnNumber: 5

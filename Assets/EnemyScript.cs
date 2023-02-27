@@ -8,6 +8,8 @@ public class EnemyScript : MonoBehaviour
 
     public int Health = 2;
 
+    public GameObject ExplosionObj;
+
     private void Start()
     {
         
@@ -15,6 +17,7 @@ public class EnemyScript : MonoBehaviour
     public void Death()
     {
         if (GameEventManager.instance != null) GameEventManager.instance.MissionTrigger.Invoke(this.MissionId);
+        Instantiate(ExplosionObj, this.transform.position, this.transform.rotation);
         Destroy(gameObject);
     }
 

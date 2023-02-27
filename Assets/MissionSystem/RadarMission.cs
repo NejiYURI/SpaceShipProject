@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 [CreateAssetMenu(fileName = "NewRadarMission", menuName = "Mission/RadarMission")]
 public class RadarMission : MissionData

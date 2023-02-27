@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7659502403061804636}
   - component: {fileID: 7659502403061804627}
+  - component: {fileID: 1953142051}
   - component: {fileID: 7659502403061804637}
   - component: {fileID: 7659502403061804638}
   - component: {fileID: 7659502403061804632}
   - component: {fileID: 7659502403061804633}
-  - component: {fileID: 3114457782449228337}
-  - component: {fileID: 1953142051}
+  - component: {fileID: 1892420325302860740}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 2055253717
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1876831103, guid: 54c5078d07a47934799ec50677aaeeaf, type: 3}
+  m_Sprite: {fileID: 1368428079, guid: cc18e13c0f8526349a017fe6a8d4e155, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,6 +90,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1953142051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7659502403061804626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b13e9a68a206924b944a0c413414360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 0}
+  MainCanvas: {fileID: 0}
+  Pointer: {fileID: 1774956147127548444, guid: 7d0c556f53c45ac44869b474890f1ff8, type: 3}
+  CharacterObj: {fileID: 7659502403061804626}
 --- !u!114 &7659502403061804637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,8 +371,8 @@ FixedJoint2D:
   m_ConnectedAnchor: {x: 6.04, y: -2.95}
   m_DampingRatio: 0
   m_Frequency: 0
---- !u!58 &3114457782449228337
-CircleCollider2D:
+--- !u!70 &1892420325302860740
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -364,25 +380,10 @@ CircleCollider2D:
   m_GameObject: {fileID: 7659502403061804626}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3a95f6d6a075f1649aed946c01900d80, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1
---- !u!114 &1953142051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7659502403061804626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b13e9a68a206924b944a0c413414360, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Camera: {fileID: 0}
-  MainCanvas: {fileID: 0}
-  Pointer: {fileID: 1774956147127548444, guid: 7d0c556f53c45ac44869b474890f1ff8, type: 3}
+  m_Size: {x: 1.3333334, y: 1.3333334}
+  m_Direction: 0
