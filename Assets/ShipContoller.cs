@@ -56,6 +56,13 @@ public class ShipContoller : MonoBehaviour, IF_CharacterObj
         {
             ShipCamera.depth = -2;
         }
+        if (DriverSit_P == null && GunnerSit_P == null)
+        {
+            if (Planet)
+            {
+                RotateShip(Planet.position);
+            }
+        }
     }
 
     void GameOver()
@@ -164,5 +171,14 @@ public class ShipContoller : MonoBehaviour, IF_CharacterObj
             Debug.Log("out Planet");
             this.Planet = null;
         }
+    }
+
+    void RotateShip(Vector2 _target)
+    {
+        Vector2 _dir = (Vector2)transform.position - _target;
+        int sign = (_dir.x >= 0) ? -1 : 1;
+        int offset = (sign >= 0) ? 0 : 360;
+        float angle = Vector2.Angle(_dir.normalized, Vector2.up) * sign + offset;
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, 0f, angle), Time.deltaTime * 30f);
     }
 }
