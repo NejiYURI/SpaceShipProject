@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Combat_Ezra
   m_EditorClassIdentifier: 
   MissionName: Test
-  MissionDescription: Clear all enemies in <-c>#name</color>
+  MissionDescription: Clear all enemies at planet <-c>#name</color>
   EnemyObj: {fileID: 2188012907594901495, guid: 25bc1ffc0647f8d4d860a3deedb81082, type: 3}
   SpawnNumber: 6

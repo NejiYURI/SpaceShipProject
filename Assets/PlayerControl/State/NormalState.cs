@@ -10,7 +10,7 @@ public class NormalState : PlayerState
     }
     public override void StateStart()
     {
-        p_con.playerInput.SwitchCurrentActionMap("Normal");
+        p_con.SwitchInputMap("Normal");
         p_con.fixedJoint.enabled = false;
     }
 

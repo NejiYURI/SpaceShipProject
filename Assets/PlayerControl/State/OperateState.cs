@@ -17,7 +17,7 @@ public class OperateState : PlayerState
     }
     public override void StateStart()
     {
-        p_con.playerInput.SwitchCurrentActionMap("Operating");
+        p_con.SwitchInputMap("Operating");
     }
     public override void Interactive()
     {

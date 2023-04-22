@@ -22,7 +22,7 @@ public class DrivingState : PlayerState
         {
             //p_con.fixedJoint.connectedBody = ship.rg;
             //p_con.fixedJoint.enabled = true;
-            p_con.playerInput.SwitchCurrentActionMap("Drive");
+            p_con.SwitchInputMap("Drive");
         }
        
     }

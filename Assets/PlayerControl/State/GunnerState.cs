@@ -22,7 +22,7 @@ public class GunnerState : PlayerState
         {
             //p_con.fixedJoint.connectedBody = ship.rg;
             //p_con.fixedJoint.enabled = true;
-            p_con.playerInput.SwitchCurrentActionMap("Shoot");
+            p_con.SwitchInputMap("Shoot");
         }
     }
     public override void Interactive()
@@ -31,6 +31,7 @@ public class GunnerState : PlayerState
     }
     public override void InteractiveCancel()
     {
+        Debug.Log("Cancel");
         ship.shipContoller.FireWeapon(false);
     }
 

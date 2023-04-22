@@ -123,6 +123,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &63814091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 63814093}
+  - component: {fileID: 63814092}
+  m_Layer: 0
+  m_Name: JoyConManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &63814092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63814091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405bad29b2b998c408059182c189d9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnableIMU: 1
+  EnableLocalize: 1
+--- !u!4 &63814093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63814091}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1922914012}
+  - {fileID: 946602960}
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &127212000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,6 +378,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &153146148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 153146149}
+  - component: {fileID: 153146150}
+  m_Layer: 0
+  m_Name: GameSetting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &153146149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153146148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &153146150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153146148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8901dd16f03e546b0b94230de115f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsJoycon: 1
 --- !u!1 &156254136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,6 +1721,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &946602959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 946602960}
+  - component: {fileID: 946602961}
+  m_Layer: 0
+  m_Name: JoyConR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &946602960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946602959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 63814093}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &946602961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946602959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6bae6e0b1815741b9e87c3baaaa5af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jc_ind: 1
+  stick: []
+  ControlTarget: {fileID: 7659502403502539726}
 --- !u!1 &1029008287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,6 +2020,7 @@ MonoBehaviour:
   TaskList: {fileID: 290392442}
   TaskLabel: {fileID: 8403342441238517889, guid: e2d94500573947444880736118ff7e09, type: 3}
   GameOverUI: {fileID: 1987771779}
+  JoyconManagerObj: {fileID: 63814091}
 --- !u!4 &1195346363
 Transform:
   m_ObjectHideFlags: 0
@@ -7689,6 +7830,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1922914011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1922914012}
+  - component: {fileID: 1922914013}
+  m_Layer: 0
+  m_Name: JoyConL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1922914012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922914011}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 63814093}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1922914013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922914011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6bae6e0b1815741b9e87c3baaaa5af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jc_ind: 0
+  stick: []
+  ControlTarget: {fileID: 1953142045}
 --- !u!1 &1934790101 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7659502403061804626, guid: fdea9f1591443e14eafb7c94cba11c53, type: 3}
@@ -7699,6 +7887,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7659502403061804636, guid: fdea9f1591443e14eafb7c94cba11c53, type: 3}
   m_PrefabInstance: {fileID: 7659502404472503108}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1953142045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7659502403061804637, guid: fdea9f1591443e14eafb7c94cba11c53, type: 3}
+  m_PrefabInstance: {fileID: 7659502404472503108}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934790101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb86e77cd248ef643bee0af53717cdf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1987771779
 GameObject:
   m_ObjectHideFlags: 0
@@ -8047,6 +8246,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6284381441509391313, guid: 859478fdbcabca64bbb7d7e4ddb2ef77, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6284381441509391315, guid: 859478fdbcabca64bbb7d7e4ddb2ef77, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -8265,6 +8468,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6284381441509391315, guid: 859478fdbcabca64bbb7d7e4ddb2ef77, type: 3}
   m_PrefabInstance: {fileID: 4430028303570335770}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7659502403502539726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6284381441509391314, guid: 859478fdbcabca64bbb7d7e4ddb2ef77, type: 3}
+  m_PrefabInstance: {fileID: 4430028303570335770}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7659502403502539719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb86e77cd248ef643bee0af53717cdf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7659502404472503108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8327,6 +8541,10 @@ PrefabInstance:
     - target: {fileID: 7659502403061804636, guid: fdea9f1591443e14eafb7c94cba11c53, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659502403061804638, guid: fdea9f1591443e14eafb7c94cba11c53, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdea9f1591443e14eafb7c94cba11c53, type: 3}

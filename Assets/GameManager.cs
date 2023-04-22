@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject GameOverUI;
 
+    public GameObject JoyconManagerObj;
+
     private Dictionary<string, TextMeshProUGUI> TaskDatas;
 
     private void Awake()
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         List<string> EnableNameList = new List<string>();
+        if (GameSettingScript.instance && JoyconManagerObj) JoyconManagerObj.SetActive(GameSettingScript.instance.IsJoycon);
         TaskDatas = new Dictionary<string, TextMeshProUGUI>();
         EnableNameList.AddRange(NameList);
         List<MissionData> EnableMission = new List<MissionData>(); ;
@@ -105,11 +108,13 @@ public class GameManager : MonoBehaviour
 
     public void Btn_Retry()
     {
+        if (JoyconManager.Instance) JoyconManager.Instance.DetachJoy();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Btn_Title()
     {
+        if (JoyconManager.Instance) JoyconManager.Instance.DetachJoy();
         SceneManager.LoadScene("Title");
     }
 

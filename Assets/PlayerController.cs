@@ -33,12 +33,16 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
     public FixedJoint2D fixedJoint;
     private Dictionary<GameObject, InteractiveObj> interactiveObjs;
     public PlayerInput playerInput;
+
+    private bool IsJoycon;
     private void Start()
     {
         fixedJoint = GetComponent<FixedJoint2D>();
         interactiveObjs = new Dictionary<GameObject, InteractiveObj>();
         this.rg = GetComponent<Rigidbody2D>();
         if (GameEventManager.instance) GameEventManager.instance.GameClear.AddListener(GameOver);
+        if (GameSettingScript.instance) IsJoycon = GameSettingScript.instance.IsJoycon;
+        playerInput.enabled = !IsJoycon;
         SetState(new NormalState(this));
     }
 
@@ -46,6 +50,11 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         Movement = context.ReadValue<Vector2>();
+    }
+
+    public void OnMoveInput(Vector2 _input)
+    {
+        Movement = _input;
     }
 
     public void OnJumpInput(InputAction.CallbackContext context)
@@ -60,11 +69,24 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
         else if (context.canceled)
             state.InteractiveCancel();
     }
+    public void OnInteractionInput(bool IsPress)
+    {
+        Debug.Log(IsPress);
+        if (IsPress)
+            state.Interactive();
+        else
+            state.InteractiveCancel();
+    }
 
     public void OnExitInput(InputAction.CallbackContext context)
     {
         if (context.performed)
             state.Exit();
+    }
+
+    public void OnExitInput()
+    {
+        state.Exit();
     }
 
 
@@ -90,7 +112,7 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
 
     public void SetGunner(ShipContoller ship, Vector2 i_pos)
     {
-        
+
     }
 
     public Vector3 GetPlanetDiff()
@@ -106,6 +128,12 @@ public class PlayerController : PlayerStateMachine, IF_CharacterObj
     void GameOver()
     {
         playerInput.enabled = false;
+    }
+
+    public void SwitchInputMap(string MapName)
+    {
+        if (!IsJoycon)
+            playerInput.SwitchCurrentActionMap(MapName);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
